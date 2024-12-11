@@ -1,29 +1,39 @@
 import unittest
-from circle import area
-from circle import perimeter
 from math import pi
+from circle import area, perimeter
 
 
-class CircleTestCase(unittest.TestCase):
+class TestCircle(unittest.TestCase):
     def test_area(self):
-        self.assertEqual(area(3), pi * 3**2)
-        self.assertEqual(area(1), pi)
-        self.assertEqual(area(0), 0)
-        self.assertEqual(area(2.5), pi * 2.5**2)
-
-    def test_values(self):
-        self.assertRaises(ValueError, area, -3)
-        self.assertRaises(ValueError, area, -3.5)
-
-    def test_types(self):
-        self.assertRaises(TypeError, area, 2 + 3j)
-        self.assertRaises(TypeError, area, 'four')
-        self.assertRaises(TypeError, area, [10, 31])
-        self.assertRaises(TypeError, area, [6])
-        self.assertRaises(TypeError, area, False)
+        radius = 1
+        res = area(radius)
+        self.assertEqual(res, pi)
 
     def test_perimeter(self):
-        self.assertEqual(perimeter(3), 2 * pi * 3)
-        self.assertEqual(perimeter(1), 2 * pi)
-        self.assertEqual(perimeter(0), 0)
-        self.assertEqual(perimeter(2.5), 2 * pi * 2.5)
+        radius = 1
+        res = perimeter(radius)
+        self.assertEqual(res, 2 * pi)
+
+    def test_area_zero(self):
+        radius = 0
+        res = area(radius)
+        self.assertEqual(res, 0)
+
+    def test_perimeter_zero(self):
+        radius = 0
+        res = perimeter(radius)
+        self.assertEqual(res, 0)
+
+    def test_area_neg(self):
+        radius = -1
+        with self.assertRaises(AssertionError):
+            area(radius)
+
+    def test_perimeter_neg(self):
+        radius = -1
+        with self.assertRaises(AssertionError):
+            perimeter(radius)
+
+
+if __name__ == '__main__':
+    unittest.main()

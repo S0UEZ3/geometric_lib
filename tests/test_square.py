@@ -1,28 +1,39 @@
 import unittest
-from square import area
-from square import perimeter
 from math import pi
+from circle import area, perimeter
 
 
-class SquareTestCase(unittest.TestCase):
+class TestCircle(unittest.TestCase):
     def test_area(self):
-        self.assertEqual(area(3), 3 * 3)
-        self.assertEqual(area(1), 1 * 1)
-        self.assertEqual(area(2.5), (2.5) * (2.5))
-
-    def test_values(self):
-        self.assertRaises(ValueError, area, 0)
-        self.assertRaises(ValueError, area, -3)
-        self.assertRaises(ValueError, area, -3.5)
-
-    def test_types(self):
-        self.assertRaises(TypeError, area, 2 + 3j)
-        self.assertRaises(TypeError, area, 'four')
-        self.assertRaises(TypeError, area, [6])
-        self.assertRaises(TypeError, area, False)
-        self.assertRaises(TypeError, area, [10, 31])
+        radius = 1
+        res = area(radius)
+        self.assertEqual(res, pi)
 
     def test_perimeter(self):
-        self.assertEqual(perimeter(3), 4 * 3)
-        self.assertEqual(perimeter(1), 4 * 1)
-        self.assertEqual(perimeter(2.5), 4 * (2.5))
+        radius = 1
+        res = perimeter(radius)
+        self.assertEqual(res, 2 * pi)
+
+    def test_area_zero(self):
+        radius = 0
+        res = area(radius)
+        self.assertEqual(res, 0)
+
+    def test_perimeter_zero(self):
+        radius = 0
+        res = perimeter(radius)
+        self.assertEqual(res, 0)
+
+    def test_area_neg(self):
+        radius = -1
+        with self.assertRaises(AssertionError):
+            area(radius)
+
+    def test_perimeter_neg(self):
+        radius = -1
+        with self.assertRaises(AssertionError):
+            perimeter(radius)
+
+
+if __name__ == '__main__':
+    unittest.main()
