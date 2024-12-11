@@ -9,7 +9,7 @@ class TestTriangle(unittest.TestCase):
         self.assertEqual(res, 15)
 
     def test_area_zero(self):
-        x, y, z = 0, 0
+        x, y = 0, 0
         res = area(x, y)
         self.assertEqual(res, 0)
 
