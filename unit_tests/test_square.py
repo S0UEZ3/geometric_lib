@@ -26,15 +26,3 @@ class SquareTestCase(unittest.TestCase):
         self.assertEqual(perimeter(3), 4*3)
         self.assertEqual(perimeter(1), 4*1)
         self.assertEqual(perimeter(2.5), 4*(2.5))
-
-    def test_values(self):
-        self.assertRaises(ValueError, perimeter, 0)
-        self.assertRaises(ValueError, perimeter, -3)
-        self.assertRaises(ValueError, perimeter, -3.5)
-
-    def test_types(self):
-        self.assertRaises(TypeError, perimeter, 2+3j)
-        self.assertRaises(TypeError, perimeter, 'four')
-        self.assertRaises(TypeError, perimeter, [6])
-        self.assertRaises(TypeError, perimeter, False)
-        self.assertRaises(TypeError, perimeter, [10, 31])

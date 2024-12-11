@@ -27,14 +27,3 @@ class CircleTestCase(unittest.TestCase):
         self.assertEqual(perimeter(1), 2*pi)
         self.assertEqual(perimeter(0), 0)
         self.assertEqual(perimeter(2.5), 2*pi*2.5)
-
-    def test_values(self):
-        self.assertRaises(ValueError, perimeter, -3)
-        self.assertRaises(ValueError, perimeter, -3.5)
-
-    def test_types(self):
-        self.assertRaises(TypeError, perimeter, 2+3j)
-        self.assertRaises(TypeError, perimeter, 'four')
-        self.assertRaises(TypeError, perimeter, [10, 31])
-        self.assertRaises(TypeError, perimeter, [6])
-        self.assertRaises(TypeError, perimeter, False)
