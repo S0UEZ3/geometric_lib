@@ -49,6 +49,114 @@ squares and circles based on values provided by users.
     Function takes sizes of triangle sides and return their sum.
 
 
+### Tests
+---
+#### Circle tests
+```
+class CircleTestCase(unittest.TestCase):
+    def test_area(self):
+        self.assertEqual(area(3), pi*3**2)
+        self.assertEqual(area(1), pi)
+        self.assertEqual(area(0), 0)
+        self.assertEqual(area(2.5), pi*2.5**2)
+    def test_values(self):
+        self.assertRaises(ValueError, area, -3)
+        self.assertRaises(ValueError, area, -3.5)
+    def test_types(self):
+        self.assertRaises(TypeError, area, 2+3j)
+        self.assertRaises(TypeError, area, 'four')
+        self.assertRaises(TypeError, area, [10, 31])
+        self.assertRaises(TypeError, area, [6])
+        self.assertRaises(TypeError, area, False)
+
+    def test_perimeter(self):
+        self.assertEqual(perimeter(3), 2*pi*3)
+        self.assertEqual(perimeter(1), 2*pi)
+        self.assertEqual(perimeter(0), 0)
+        self.assertEqual(perimeter(2.5), 2*pi*2.5)
+    def test_values(self):
+        self.assertRaises(ValueError, perimeter, -3)
+        self.assertRaises(ValueError, perimeter, -3.5)
+    def test_types(self):
+        self.assertRaises(TypeError, perimeter, 2+3j)
+        self.assertRaises(TypeError, perimeter, 'four')
+        self.assertRaises(TypeError, perimeter, [10, 31])
+        self.assertRaises(TypeError, perimeter, [6])
+        self.assertRaises(TypeError, perimeter, False)
+```
+
+#### Square tests 
+```
+class SquareTestCase(unittest.TestCase):
+    def test_area(self):
+        self.assertEqual(area(3), 3*3)
+        self.assertEqual(area(1), 1*1)
+        self.assertEqual(area(2.5), (2.5)*(2.5))
+    def test_values(self):
+        self.assertRaises(ValueError, area, 0)
+        self.assertRaises(ValueError, area, -3)
+        self.assertRaises(ValueError, area, -3.5)
+    def test_types(self):
+        self.assertRaises(TypeError, area, 2+3j)
+        self.assertRaises(TypeError, area, 'four')
+        self.assertRaises(TypeError, area, [6])
+        self.assertRaises(TypeError, area, False)
+        self.assertRaises(TypeError, area, [10, 31])
+
+    def test_perimeter(self):
+        self.assertEqual(perimeter(3), 4*3)
+        self.assertEqual(perimeter(1), 4*1)
+        self.assertEqual(perimeter(2.5), 4*(2.5))
+    def test_values(self):
+        self.assertRaises(ValueError, perimeter, 0)
+        self.assertRaises(ValueError, perimeter, -3)
+        self.assertRaises(ValueError, perimeter, -3.5)
+    def test_types(self):
+        self.assertRaises(TypeError, perimeter, 2+3j)
+        self.assertRaises(TypeError, perimeter, 'four')
+        self.assertRaises(TypeError, perimeter, [6])
+        self.assertRaises(TypeError, perimeter, False)
+        self.assertRaises(TypeError, perimeter, [10, 31])
+```
+
+#### Triangle tests
+```
+class TriangleTestCase(unittest.TestCase):
+    def test_area(self):
+        self.assertEqual(area(3, 5), 3*5/2)
+        self.assertEqual(area(5, 3), 5*3/2)
+        self.assertEqual(area(2.3, 4.6), (2.3)*(4.6))
+        self.assertEqual(area(3, 1.5), 3*(1.5)/2)
+    def test_values(self):
+        self.assertRaises(ValueError, area, 1, 0)
+        self.assertRaises(ValueError, area, -7, 2)
+        self.assertRaises(ValueError, area, -8, -9)
+    def test_types(self):
+        self.assertRaises(TypeError, area, 3+4j, 1+3j)
+        self.assertRaises(TypeError, area, 'two', 'four')
+        self.assertRaises(TypeError, area, [5], [4])
+        self.assertRaises(TypeError, area, {3,5}, {4,7})
+
+    def test_perimeter(self):
+        self.assertEqual(perimeter(2,3,4), 2+3+4)
+        self.assertEqual(perimeter(2.6, 3.2, 8), 2.6 + 3.2 + 8)
+    def test_values(self):
+        self.assertRaises(ValueError, perimeter, -6, 3, 5)
+        self.assertRaises(ValueError, perimeter, -2, -3, -6)
+        self.assertRaises(ValueError, perimeter, 0, 3, 7)
+    def test_types(self):
+        self.assertRaises(TypeError, perimeter, 'two', 3, 'one')
+        self.assertRaises(TypeError, perimeter, [2], 3+6j, 11)
+        self.assertRaises(TypeError, perimeter, 2, {3}, 9)
+```
+
+### Tests Result
+| Name | Tests Runned | Tests Failed | Success | Run Time |
+| --- | --- | --- | --- | --- |
+| circle_tests | 4 |  2 | 50% | 0.002 |
+| square_tests | 4 |  2 | 50% | 0.001 |
+| triangle_tests | 4 |  2 | 50% | 0.001 |
+
 ---
 ### Commit History
 
