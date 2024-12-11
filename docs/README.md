@@ -160,7 +160,8 @@ class TriangleTestCase(unittest.TestCase):
 ---
 ### Commit History
 
-
+* 0ceef42 (HEAD -> main) unit tests
+* 69fceec (origin/main, origin/HEAD) chores: add some comments
 * ff5683b (HEAD -> main) docs: description for each function provided
     * 86edb1c (origin/release) L-05: Update Docs. Add user agreement info
         * 438b89a L-05: Add user agreement
@@ -172,4 +173,5 @@ class TriangleTestCase(unittest.TestCase):
         * d080c78 L-04: Triangle added
 * d078c8d (origin/main, origin/HEAD) L-03: Docs added
 * 8ba9aeb L-03: Circle and square added
+
 
